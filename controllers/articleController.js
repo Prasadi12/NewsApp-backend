@@ -38,6 +38,9 @@ module.exports.updateArticle = async(req,res) =>{
             title: req.body.title, 
             image: req.body.image,
             description: req.body.description,
+            content: req.body.content,
+            authorname: req.body.authorname,
+            publishdate: req.body.publishdate,
         })
         if(!Article){
             res.status(404).json(`Can not find any article with id ${id}`)

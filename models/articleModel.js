@@ -10,6 +10,10 @@ const articleSchema = new mongoose.Schema(
             type: String,
             // required: [true, 'Image is required'],
         },
+        description : {
+            type: String,
+            required: [true, 'description is required'],
+        },
         content : {
             type: String,
             required: [true, 'Content is required'],
