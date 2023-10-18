@@ -2,13 +2,17 @@ const mongoose = require('mongoose')
 
 const articleSchema = new mongoose.Schema(
     {
-        name: {
+        title: {
             type: String,
-            required: [true, 'Name is required'],
+            required: [true, 'Title is required'],
         },
-        age : {
-            type: Number,
-            required: true,
+        image : {
+            type: String,
+            required: [true, 'Image is required'],
+        },
+        description : {
+            type: String,
+            required: [true, 'Description is required'],
         }
     },{
         timestamps: true,

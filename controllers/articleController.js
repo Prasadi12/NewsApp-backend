@@ -14,7 +14,7 @@ module.exports.getArticle = async(req,res) => {
         const {id} = req.params;
         const Article = await articleModel.findById({_id:id})
         if(!Article){
-            return res.status(404).json(`Can not find any student with id ${id}`)
+            return res.status(404).json(`Can not find any article with id ${id}`)
         }
         res.status(200).json(Article)
     } catch (error) {
@@ -35,11 +35,12 @@ module.exports.updateArticle = async(req,res) =>{
     try {
         const {id} = req.params;
         const Article = await articleModel.findByIdAndUpdate({_id:id}, {
-            name: req.body.name, 
-            age: req.body.age
+            title: req.body.title, 
+            image: req.body.image,
+            description: req.body.description,
         })
         if(!Article){
-            res.status(404).json(`Can not find any student with id ${id}`)
+            res.status(404).json(`Can not find any article with id ${id}`)
         }
         res.status(200).json(Article)
     } catch (error) {
@@ -52,7 +53,7 @@ module.exports.deleteArticle = async(req,res) =>{
         const {id} = req.params;
         const Article = await articleModel.findByIdAndDelete({_id:id})
         if(!Article){
-            res.status(404).json(`Can not find any student with id ${id}`)
+            res.status(404).json(`Can not find any article with id ${id}`)
         }
         res.status(200).json(Article)
     } catch (error) {
