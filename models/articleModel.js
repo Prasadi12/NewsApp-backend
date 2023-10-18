@@ -13,7 +13,15 @@ const articleSchema = new mongoose.Schema(
         content : {
             type: String,
             required: [true, 'Content is required'],
-        }
+        },
+        authorname: {
+            type: String,
+            required: [true, 'Author name is required'],
+        },
+        publishdate: {
+            type: Date,
+            required: true,
+        },
     },{
         timestamps: true,
     }

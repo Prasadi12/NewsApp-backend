@@ -10,7 +10,7 @@ const userRegistrationSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Age is required'],
         },
-        email : {
+        username : {
             type: String,
             required: [true, 'Email is required'],
         },
@@ -23,5 +23,5 @@ const userRegistrationSchema = new mongoose.Schema(
     }
 );
 
-const Registration = mongoose.model('Registration', userRegistrationSchema);
-module.exports = Registration;
+const User = mongoose.model('User', userRegistrationSchema);
+module.exports = User;
