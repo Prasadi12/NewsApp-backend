@@ -3,9 +3,9 @@ const { getArticles,getArticle,createArticle,updateArticle,deleteArticle } = req
 const router = Router()
 
 router.get('/', getArticles);
-router.get('/get/:id', getArticle);
-router.post('/create', createArticle);
-router.put('/update/:id', updateArticle);
-router.delete('/delete/:id', deleteArticle);
+router.get('/getarticle/:id', getArticle);
+router.post('/createarticle', createArticle);
+router.put('/updatearticle/:id', updateArticle);
+router.delete('/deletearticle/:id', deleteArticle);
 
 module.exports = router;

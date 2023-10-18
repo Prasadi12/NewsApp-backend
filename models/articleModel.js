@@ -8,11 +8,11 @@ const articleSchema = new mongoose.Schema(
         },
         image : {
             type: String,
-            required: [true, 'Image is required'],
+            // required: [true, 'Image is required'],
         },
-        description : {
+        content : {
             type: String,
-            required: [true, 'Description is required'],
+            required: [true, 'Content is required'],
         }
     },{
         timestamps: true,
