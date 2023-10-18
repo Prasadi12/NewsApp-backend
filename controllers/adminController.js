@@ -23,6 +23,10 @@ module.exports.adminLogin = async (req, res) => {
             return res.status(404).json({ message: 'Admin not found' });
         }
 
+        if (admin.role !== 'admin') {
+            return res.status(403).json({ message: 'Access denied. User is not an admin.' });
+        }
+
         const isPasswordValid = await bcrypt.compare(password, admin.password);
         if (!isPasswordValid) {
             return res.status(401).json({ message: 'Invalid password' });

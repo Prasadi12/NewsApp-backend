@@ -10,6 +10,10 @@ const userRegistrationSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Age is required'],
         },
+        role : {
+            type: String,
+            default: 'user',
+        },
         username : {
             type: String,
             required: [true, 'Email is required'],
