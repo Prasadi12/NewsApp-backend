@@ -12,7 +12,6 @@ const userRegistrationSchema = new mongoose.Schema(
         },
         role : {
             type: String,
-            default: 'user',
         },
         username : {
             type: String,

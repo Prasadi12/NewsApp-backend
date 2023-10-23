@@ -4,10 +4,10 @@ const jwt = require('jsonwebtoken');
 
 module.exports.createUser = async(req,res) =>{
     try {
-        const { name, age, username, password } = req.body;
+        const { name, age, role, username, password } = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const User = await userRegistrationModel.create({ name, age, username, password: hashedPassword })
+        const User = await userRegistrationModel.create({ name, age, role, username, password: hashedPassword })
         res.status(200).json(User)
     } catch (error) {
         res.status(500).json({message:error.message})
@@ -32,7 +32,7 @@ module.exports.userLogin = async(req,res) => {
 
         res.cookie('jwt', token, { httpOnly: true, maxAge: 3600000 }); // Set the cookie for an hour
     
-        return res.status(200).json({ message: 'Login successful', token: token });
+        return res.status(200).json({ message: 'Login successful', token: token , role: user.role});
       } catch (error) {
         console.error('Error occurred while logging in:', error);
         return res.status(500).json({ message: 'Internal server error' });
