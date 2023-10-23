@@ -25,7 +25,16 @@ module.exports.getArticle = async(req,res) => {
 
 module.exports.createArticle = async(req,res) =>{
     try {
-        const Article = await articleModel.create(req.body)
+        const { title, description, content, authorname, publishdate } = req.body;
+        const image = req.file.path;
+        const Article = await articleModel.create({
+            title,
+            description,
+            content,
+            authorname,
+            image,
+            publishdate
+        })
         res.status(200).json(Article)
     } catch (error) {
         res.status(500).json({message:error.message})
