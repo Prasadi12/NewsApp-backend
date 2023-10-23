@@ -22,10 +22,10 @@ const articleSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Author name is required'],
         },
-        publishdate: {
-            type: Date,
-            required: true,
-        },
+        // publishdate: {
+        //     type: Date,
+        //     required: true,
+        // },
     },{
         timestamps: true,
     }

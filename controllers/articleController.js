@@ -12,6 +12,7 @@ module.exports.getArticles = async(req,res) =>{
 module.exports.getArticle = async(req,res) => {
     try {
         const {id} = req.params;
+        console.log(id)
         const Article = await articleModel.findById({_id:id})
         if(!Article){
             return res.status(404).json(`Can not find any article with id ${id}`)

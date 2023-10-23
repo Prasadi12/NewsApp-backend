@@ -12,6 +12,9 @@ app.use(cors())
 
 app.use('/article', articleRoute);
 app.use('/auth', authRoute);
+app.get('/hello', (req,res) => {
+    res.json({Title:'hello'})
+});
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
