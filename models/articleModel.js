@@ -8,7 +8,7 @@ const articleSchema = new mongoose.Schema(
         },
         image : {
             type: String,
-            required: [true, 'Image is required'],
+            // required: [true, 'Image is required'],
         },
         description : {
             type: String,
@@ -22,10 +22,10 @@ const articleSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Author name is required'],
         },
-        // publishdate: {
-        //     type: Date,
-        //     required: true,
-        // },
+        publishdate: {
+            type: Date,
+            required: true,
+        },
     },{
         timestamps: true,
     }
