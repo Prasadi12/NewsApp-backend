@@ -25,6 +25,9 @@ const articleSchema = new mongoose.Schema(
         publishdate: {
             type: Date,
             required: true,
+            set: function (v) {
+                return new Date(v);
+            },
         },
     },{
         timestamps: true,

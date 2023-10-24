@@ -26,7 +26,7 @@ module.exports.getArticle = async (req, res) => {
 module.exports.createArticle = async (req, res) => {
     try {
             const { title, description, content, authorname, publishdate } = req.body;
-            const image = req.file.destination+'/'+req.file.filename;
+            const image = req.file.filename;
             const Article = await articleModel.create({
                 title,
                 description,
