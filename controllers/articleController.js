@@ -42,22 +42,49 @@ module.exports.createArticle = async (req, res) => {
     }
 };
 
+// module.exports.updateArticle = async (req, res) => {
+//     try {
+//         const { id } = req.params;
+//         const { title, description, content, authorname, publishdate } = req.body;
+//         const image = req.file.filename;
+//         const Article = await articleModel.findByIdAndUpdate(id, { 
+//             title,
+//             description,
+//             content,
+//             authorname,
+//             image,
+//             publishdate,
+//         });
+//         if (!Article) {
+//             res.status(404).json(`Can not find any article with id ${id}`);
+//         }
+//         res.status(200).json(Article);
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// };
+
 module.exports.updateArticle = async (req, res) => {
     try {
         const { id } = req.params;
         const { title, description, content, authorname, publishdate } = req.body;
-        const image = req.file.filename;
-        const Article = await articleModel.findByIdAndUpdate(id, { // Removed unnecessary object from findByIdAndUpdate function
-            title,
-            description,
-            content,
-            authorname,
-            image,
-            publishdate,
+        const updateData = {};
+
+        if (title) updateData.title = title;
+        if (description) updateData.description = description;
+        if (content) updateData.content = content;
+        if (authorname) updateData.authorname = authorname;
+        if (req.file) updateData.image = req.file.filename; // Check if there is a new file uploaded
+        if (publishdate) updateData.publishdate = publishdate;
+
+        const Article = await articleModel.findByIdAndUpdate(id, updateData, {
+            new: true, // To return the modified document rather than the original
         });
+
         if (!Article) {
-            res.status(404).json(`Can not find any article with id ${id}`);
+            return res.status(404).json(`Can not find any article with id ${id}`);
         }
+
         res.status(200).json(Article);
     } catch (error) {
         res.status(500).json({ message: error.message });
