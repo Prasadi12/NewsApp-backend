@@ -23,11 +23,8 @@ const articleSchema = new mongoose.Schema(
             required: [true, 'Author name is required'],
         },
         publishdate: {
-            type: Date,
+            type: String,
             required: true,
-            set: function (v) {
-                return new Date(v);
-            },
         },
     },{
         timestamps: true,

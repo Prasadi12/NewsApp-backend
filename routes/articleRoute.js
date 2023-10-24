@@ -1,5 +1,6 @@
 const {Router} = require('express')
 const { getArticles,getArticle,createArticle,updateArticle,deleteArticle } = require('../controllers/articleController')
+const { createComment } = require('../controllers/commentController')
 const router = Router()
 const path = require('path');
 const multer = require('multer');
@@ -20,9 +21,9 @@ const upload = multer({
 
 router.get('/', getArticles);
 router.get('/getarticle/:id', getArticle);
-
 router.post('/createarticle',upload.single('image'), createArticle);
 router.put('/updatearticle/:id', updateArticle);
 router.delete('/deletearticle/:id', deleteArticle);
+router.post('/createcomment', createComment);
 
 module.exports = router;
