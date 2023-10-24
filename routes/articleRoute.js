@@ -22,7 +22,7 @@ const upload = multer({
 router.get('/', getArticles);
 router.get('/getarticle/:id', getArticle);
 router.post('/createarticle',upload.single('image'), createArticle);
-router.put('/updatearticle/:id', updateArticle);
+router.put('/updatearticle/:id',upload.single('image'), updateArticle);
 router.delete('/deletearticle/:id', deleteArticle);
 router.post('/createcomment', createComment);
 

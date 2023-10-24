@@ -45,12 +45,15 @@ module.exports.createArticle = async (req, res) => {
 module.exports.updateArticle = async (req, res) => {
     try {
         const { id } = req.params;
+        const { title, description, content, authorname, publishdate } = req.body;
+        const image = req.file.filename;
         const Article = await articleModel.findByIdAndUpdate(id, { // Removed unnecessary object from findByIdAndUpdate function
-            title: req.body.title,
-            description: req.body.description,
-            content: req.body.content,
-            authorname: req.body.authorname,
-            publishdate: req.body.publishdate,
+            title,
+            description,
+            content,
+            authorname,
+            image,
+            publishdate,
         });
         if (!Article) {
             res.status(404).json(`Can not find any article with id ${id}`);
