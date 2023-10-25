@@ -8,6 +8,7 @@ const userRegistrationSchema = new mongoose.Schema(
     },
     age: {
       type: Number,
+      minlength: 1,
       maxlength: 3,
       required: [true, "Age is required"],
     },
@@ -21,7 +22,6 @@ const userRegistrationSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      maxlength: 10,
       required: [true, "Password is required"],
     },
   },
