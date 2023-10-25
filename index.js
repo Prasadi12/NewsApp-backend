@@ -4,7 +4,6 @@ const cors = require("cors");
 const path = require("path");
 const articleRoute = require("./routes/articleRoute");
 const authRoute = require("./routes/authRoute");
-const { verifyUser } = require("./middleware/verifyToken");
 require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT | 5000;
