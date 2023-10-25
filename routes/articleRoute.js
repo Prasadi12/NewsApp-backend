@@ -20,7 +20,7 @@ const upload = multer({
     storage: storage,
 });
 
-router.get('/', getArticles);
+router.get('/all', getArticles);
 router.use(verifyUser);
 router.get('/home', getArticles);
 router.get('/dashboard', getArticles);
