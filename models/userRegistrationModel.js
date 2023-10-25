@@ -7,7 +7,8 @@ const userRegistrationSchema = new mongoose.Schema(
       required: [true, "Name is required"],
     },
     age: {
-      type: String,
+      type: Number,
+      maxlength: 3,
       required: [true, "Age is required"],
     },
     role: {
@@ -15,10 +16,12 @@ const userRegistrationSchema = new mongoose.Schema(
     },
     username: {
       type: String,
+      unique: true,
       required: [true, "Email is required"],
     },
     password: {
       type: String,
+      maxlength: 10,
       required: [true, "Password is required"],
     },
   },
