@@ -18,7 +18,6 @@ const upload = multer({
     storage: storage,
 });
 
-
 router.get('/', getArticles);
 router.get('/getarticle/:id', getArticle);
 router.post('/createarticle',upload.single('image'), createArticle);
