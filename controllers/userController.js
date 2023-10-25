@@ -52,6 +52,5 @@ module.exports.userLogin = async (req, res) => {
 };
 
 module.exports.userLogout = (req, res) => {
-  res.clearCookie("jwt");
   res.status(200).json({ message: "Logout successful" });
 };
